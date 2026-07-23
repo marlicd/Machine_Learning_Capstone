@@ -436,16 +436,6 @@ def quiet_list(lines):
     st.markdown(f'<div class="quiet-list">{items}</div>', unsafe_allow_html=True)
 
 
-def footer():
-    st.markdown(
-        """
-        <div class="footer">
-            Marlic Demetrius · Bachelor of Computer Science ·
-            Machine Learning Capstone Project · 2026
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
 
 
 def style_fig(fig, height=None):
@@ -531,7 +521,6 @@ def page_home(df_raw):
             """
         )
 
-    footer()
 
 
 # ============================================================================
@@ -592,8 +581,6 @@ def page_dataset_overview(df_raw, bmi_missing_before):
         the median holds up better against that.
         """
     )
-
-    footer()
 
 
 # ============================================================================
@@ -679,8 +666,6 @@ def page_eda(df_readable):
         ]
     )
 
-    footer()
-
 
 # ============================================================================
 # PAGE 4 — FEATURE RELATIONSHIPS
@@ -740,9 +725,6 @@ def page_feature_relationships(df_encoded, bundle):
         risk more broadly, followed by BMI.
         """
     )
-
-    footer()
-
 
 # ============================================================================
 # PAGE 5 — MACHINE LEARNING MODELS
@@ -869,8 +851,6 @@ def page_ml_models(bundle):
     with c2:
         st.code(r["report"], language="text")
 
-    footer()
-
 
 # ============================================================================
 # PAGE 6 — MODEL COMPARISON
@@ -939,8 +919,6 @@ def page_model_comparison(bundle):
     )
     st.caption("Chosen for the best balance between recall and F1 score of the four models tested.")
 
-    footer()
-
 
 # ============================================================================
 # PAGE 7 — STROKE RISK PREDICTION
@@ -963,7 +941,7 @@ def page_prediction(bundle, encoders, feature_names):
     with c3:
         residence_type = st.selectbox("Residence type", list(encoders["Residence_type"].classes_))
         avg_glucose = st.number_input("Average glucose level (mg/dL)", 40.0, 300.0, 100.0, step=0.1)
-        bmi = st.number_input("BMI", 10.0, 80.0, 25.0, step=0.1)
+        bmi = st.number_input("BMI", 10.0, 80.0, 25.0,is a bmi of 28.8 good or bad step=0.1)
     smoking_status = st.selectbox("Smoking status", list(encoders["smoking_status"].classes_))
 
     with st.expander("Advanced: choose a different model"):
